@@ -1,4 +1,4 @@
-package lk.pathum;
+package lk.pathum.coach;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

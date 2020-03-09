@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/microservice-project/coach-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-project/coach-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-project/passenger-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-project/payment-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-project/payment-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-project/reservation-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-project/reservation-service/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

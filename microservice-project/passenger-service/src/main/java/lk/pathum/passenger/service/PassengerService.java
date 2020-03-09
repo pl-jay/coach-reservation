@@ -7,5 +7,5 @@ import java.util.List;
 public interface PassengerService {
     List<Passenger> getAll();
     Passenger save(Passenger passenger);
-    Passenger fetchPassenger(int id);
+    Passenger fetchPassenger(Integer id);
 }
