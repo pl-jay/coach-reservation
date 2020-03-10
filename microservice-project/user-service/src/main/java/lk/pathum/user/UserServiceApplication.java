@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 //@EnableEurekaClient
-public class PassengerServiceApplication {
+public class UserServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PassengerServiceApplication.class, args);
+		SpringApplication.run(UserServiceApplication.class, args);
 	}
 
 }

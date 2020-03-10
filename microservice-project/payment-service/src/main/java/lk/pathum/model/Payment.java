@@ -1,4 +1,5 @@
-package lk.pathum.passenger.model;
+package lk.pathum.model;
+
 
 import lombok.Data;
 import javax.persistence.Entity;
@@ -8,11 +9,14 @@ import javax.persistence.Id;
 
 @Data
 @Entity
-public class Passenger {
+public class Payment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-    String name;
-    String nic;
+    float amount;
+
+    Passenger[] passengers;
+    Coach[] coach;
+
 }
