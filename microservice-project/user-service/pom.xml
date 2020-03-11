@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>lk.pathum</groupId>
-	<artifactId>passenger-service</artifactId>
+	<artifactId>user-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>passenger-service</name>
+	<name>user-service</name>
 	<description>virtusa-lp-training</description>
 
 	<properties>

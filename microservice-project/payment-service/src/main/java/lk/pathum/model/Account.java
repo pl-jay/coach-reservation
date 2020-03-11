@@ -1,4 +1,4 @@
-package lk.pathum.user.model;
+package lk.pathum.model;
 
 import lombok.Data;
 import javax.persistence.Entity;
@@ -6,14 +6,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Data
 @Entity
-public class User {
+@Data
+public class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-    String name;
-    String nic;
-    String role;
+    User[] user;
+    float balance;
+
 }

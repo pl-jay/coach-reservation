@@ -3,11 +3,9 @@ package lk.pathum.model;
 import lombok.Data;
 
 @Data
-public class Coach {
-
+public class User {
     Integer id;
     String name;
-    String number;
-    Integer seats;
-    boolean ac;
+    String nic;
+    String role;
 }

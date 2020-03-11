@@ -14,9 +14,9 @@ public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
+    User[] consumer;
+    User[] provider;
     float amount;
-
-    Passenger[] passengers;
-    Coach[] coach;
-
+    String remarks;
+    
 }
