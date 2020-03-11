@@ -1,6 +1,7 @@
 package lk.pathum.controller;
 
 import lk.pathum.model.User;
+import lk.pathum.model.Payment;
 import lk.pathum.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,5 +17,9 @@ public class PaymentController {
         return true; //paymentService.creditAccount()
     }
 
+    @RequestMapping("/sample")
+    public Payment sample(){
+        return new Payment();
+    }
 
 }

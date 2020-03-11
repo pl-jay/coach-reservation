@@ -30,6 +30,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User fetchUser(Integer id) {
-        return null;
+        Optional<User> optionalUsr = userRepository.findById(id);
+        if(optionalUsr.isPresent()){
+            User user = optionalUsr.get();
+            return user;
+        } else{
+            return null;
+        }
     }
 }

@@ -1,6 +1,6 @@
 package lk.pathum.user.controller;
 
-import lk.pathum.user.model.Passenger;
+import lk.pathum.user.model.User;
 import lk.pathum.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
 
     @Autowired
@@ -28,7 +28,7 @@ public class UserController {
         return userService.save(user);
     }
 
-    @RequestMapping("/passenger/{id}")
+    @RequestMapping("/user/{id}")
     public User fetchUser(@PathVariable int id){
         return userService.fetchUser(id);
     }
