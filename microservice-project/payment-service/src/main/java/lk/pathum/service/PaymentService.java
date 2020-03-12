@@ -12,7 +12,6 @@ public interface PaymentService {
     Payment save(Payment payment);
     Payment fetchPayments(Integer id);
 
-    @Modifying
-    @Query("update account a set a.amount = a.amount + :amount where a.accId = :accId")
-    Payment creditAccount(@Param("accId") int accId, @Param("amount") float amount);
+    boolean updateAccount(int by,int to,float amount);
+
 }

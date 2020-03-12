@@ -32,8 +32,11 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     @Override
-    public Payment creditAccount(int accId, float amount) {
-        return null;
+    @Modifying
+    @Query("update account a set a.amount = a.amount + :amount where a.accId = :to")
+    public boolean updateAccount(int by, int to, float amount) {
+        return true;
     }
+
 
 }

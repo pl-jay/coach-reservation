@@ -19,6 +19,5 @@ public class Reservation {
     User[] user;
     LocalDate date;
     Coach[] coach;
-
-
+    int seatNo;
 }
