@@ -1,4 +1,4 @@
-package lk.pathum.coach.model;
+package lk.pathum.utility.model;
 
 import lombok.Data;
 import javax.persistence.Entity;
@@ -8,7 +8,7 @@ import javax.persistence.Id;
 
 @Data
 @Entity
-public class Coach {
+public class Utility {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

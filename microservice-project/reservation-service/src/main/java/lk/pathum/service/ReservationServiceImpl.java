@@ -3,10 +3,11 @@ package lk.pathum.service;
 import lk.pathum.model.Reservation;
 import lk.pathum.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
-@Service
+@Repository
 public class ReservationServiceImpl implements ReservationService {
 
     @Autowired
@@ -23,7 +24,6 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
-    /* @Query("select * from Reservation r where ") */
     public List<Reservation> fetchByUser(int id) {
         return null;
     }

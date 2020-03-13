@@ -1,7 +1,7 @@
-package lk.pathum.coach.controller;
+package lk.pathum.utility.controller;
 
-import lk.pathum.coach.model.Coach;
-import lk.pathum.coach.service.CoachService;
+import lk.pathum.utility.model.Utility;
+import lk.pathum.utility.service.UtilityService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,29 +13,29 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/coach")
-public class CoachController {
+public class UtilityController {
 
     @Autowired
-    private CoachService coachService;
+    private UtilityService utilityService;
 
     @RequestMapping("/getAll")
-    public List<Coach> getAll(){
-        return coachService.getAll();
+    public List<Utility> getAll(){
+        return utilityService.getAll();
     }
 
     @RequestMapping("/save")
-    public Coach save(@RequestBody Coach coach){
-        return coachService.save(coach);
+    public Utility save(@RequestBody Utility utility){
+        return utilityService.save(utility);
     }
 
     @RequestMapping("/passenger/{id}")
-    public Coach fetchCoach(@PathVariable int id){
+    public Utility fetchUtility(@PathVariable int id){
         return null;
     }
 
 
     @RequestMapping("/sample")
-    public Coach sample(){
-        return new Coach();
+    public Utility sample(){
+        return new Utility();
     }
 }

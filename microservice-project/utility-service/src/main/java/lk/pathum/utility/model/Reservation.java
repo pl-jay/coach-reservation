@@ -1,4 +1,4 @@
-package lk.pathum.model;
+package lk.pathum.utility.model;
 
 import lombok.Data;
 
@@ -16,6 +16,6 @@ public class Reservation {
     int user;
     LocalDate date;
     int seatNo;
-    Coach coach;
 
+    Utility coach;
 }

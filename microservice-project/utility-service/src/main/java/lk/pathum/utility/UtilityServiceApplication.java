@@ -1,13 +1,13 @@
-package lk.pathum.coach;
+package lk.pathum.utility;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CoachServiceApplication {
+public class UtilityServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CoachServiceApplication.class, args);
+		SpringApplication.run(UtilityServiceApplication.class, args);
 	}
 
 }
