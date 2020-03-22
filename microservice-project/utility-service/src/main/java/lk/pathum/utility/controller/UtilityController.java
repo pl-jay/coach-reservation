@@ -1,41 +1,77 @@
 package lk.pathum.utility.controller;
 
+import lk.pathum.utility.model.Item;
+import lk.pathum.utility.model.Reservation;
 import lk.pathum.utility.model.Utility;
 import lk.pathum.utility.service.UtilityService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/coach")
+@RequestMapping("/utilities")
 public class UtilityController {
 
     @Autowired
     private UtilityService utilityService;
 
-    @RequestMapping("/getAll")
-    public List<Utility> getAll(){
+
+//    @PostMapping("/reserve")
+//    public Reservation setReservation(@RequestBody Reservation reservation){
+//        return reservationService.save(reservation);
+//    }
+//
+//    @GetMapping("/getAll")
+//    public List<Reservation> getReservation(){
+//        return reservationService.fetchAll();
+//    }
+//
+//    @RequestMapping("/getReservationbyUtility/{id}")
+//    public List<Reservation> getReservationbyUtilityId(@PathVariable int id){
+//        return reservationService.fetchByUtility(id);
+//    }
+//
+//    @RequestMapping("/getReservationbyUser/{id}")
+//    public List<Reservation> getReservationbyUserId(@PathVariable int id){
+//        return reservationService.fetchByUser(id);
+//    }
+//
+//    @RequestMapping("/sample")
+//    public Reservation sample(){
+//        Reservation reservation = new Reservation();
+//        return reservation;
+//    }
+
+    // utility requests mapping
+    @GetMapping("/getAllUtilities")
+    public List<Utility> getAllUtilities(){
         return utilityService.getAll();
     }
 
-    @RequestMapping("/save")
-    public Utility save(@RequestBody Utility utility){
+    @PostMapping("/saveUtility")
+    public Utility saveUtility(@RequestBody Utility utility){
         return utilityService.save(utility);
     }
 
-    @RequestMapping("/passenger/{id}")
-    public Utility fetchUtility(@PathVariable int id){
-        return null;
+
+    @GetMapping("/utility/{id}")
+    public Utility fetchUtilitybyId(@PathVariable int id){
+        return utilityService.fetchUtility(id);
     }
 
 
-    @RequestMapping("/sample")
-    public Utility sample(){
+    @GetMapping("/sampleUtility")
+    public Utility sampleUtility(){
         return new Utility();
     }
+
+
+    @GetMapping("/utilitySeats/{id}")
+    public List<Integer> utilitySeats(@PathVariable int id){
+        return utilityService.availableSeats(id);
+    }
+
+
 }

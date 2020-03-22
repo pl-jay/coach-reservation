@@ -38,4 +38,19 @@ public class UserServiceImpl implements UserService {
             return null;
         }
     }
+
+    @Override
+    public User update(Integer id) {
+        User user = new User();
+        user.setId(id);
+
+        Example<User> example = Example.of(user);
+        Optional<User> optionalUsr = userRepository.findOne(example);
+        if(optionalUsr.isPresent()){
+            User newUser = optionalUsr.get();
+            newUser.setName("jaye");
+            return userRepository.save(newUser);
+        }
+        return new User();
+    }
 }

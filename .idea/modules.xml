@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/coach-reservation.iml" filepath="$PROJECT_DIR$/.idea/coach-reservation.iml" />
-      <module fileurl="file://$PROJECT_DIR$/microservice-project/coach-service/coach-service.iml" filepath="$PROJECT_DIR$/microservice-project/coach-service/coach-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/microservice-project/passenger-service/passenger-service.iml" filepath="$PROJECT_DIR$/microservice-project/passenger-service/passenger-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/microservice-project/payment-service/payment-service.iml" filepath="$PROJECT_DIR$/microservice-project/payment-service/payment-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/microservice-project/reservation-service/reservation-service.iml" filepath="$PROJECT_DIR$/microservice-project/reservation-service/reservation-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/coach-reservation.iml" filepath="$PROJECT_DIR$/coach-reservation.iml" />
     </modules>
   </component>
 </project>

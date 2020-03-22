@@ -8,4 +8,6 @@ public interface UserService {
     List<User> getAll();
     User save(User user);
     User fetchUser(Integer id);
+
+    User update(Integer id);
 }

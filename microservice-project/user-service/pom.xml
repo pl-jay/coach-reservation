@@ -12,7 +12,7 @@
 	<artifactId>user-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>user-service</name>
-	<description>virtusa-lp-training</description>
+	<description>user-service</description>
 
 	<properties>
 		<java.version>11</java.version>

@@ -37,4 +37,10 @@ public class UserController {
     public User sample(){
         return  new User();
     }
+
+    @RequestMapping("/sampleUpdate/{id}")
+    public User sampleUpdate(@PathVariable int id){
+        return  userService.update(id);
+    }
+
 }

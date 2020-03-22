@@ -1,11 +1,9 @@
 package lk.pathum.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import javax.persistence.Id;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -14,10 +12,9 @@ public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-    float amount;
+    Float amount;
     String remarks;
-    int consumer;
-    int provider;
-
+    Integer provider;
+    Integer consumer;
 
 }
