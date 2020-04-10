@@ -42,21 +42,35 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
+    public boolean cancelReservation(int id) {
+        try{
+            reservationRepository.deleteById(id);
+            return checkRecord(id);
+        } catch (Exception e){
+            return checkRecord(id);
+        }
+
+    }
+
+    @Override
     public Integer[] availableSeats(int id) {
 
         Reservation reservation = new Reservation();
         reservation.setUtility_id(id);
 
         List<Integer> list2 = new ArrayList<>();
-
-        Example<Reservation> reservationExample = Example.of(reservation);
-        List<Reservation> reservationOptional = reservationRepository.findAll(reservationExample);
+        List<Reservation> reservationOptional = reservationRepository.findAll(Example.of(reservation));
 
         for (Reservation res: reservationOptional) {
             list2.add(res.getSeatNo());
         }
 
         return list2.stream().toArray(Integer[]::new);
+    }
+
+    @Override
+    public boolean checkRecord(int id){
+        return reservationRepository.findById(id).isPresent();
     }
 
 

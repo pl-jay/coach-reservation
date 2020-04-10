@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class PaymentServiceImpl implements PaymentService {
@@ -44,16 +45,17 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Override
     public Payment fetchPayments(Integer id) {
-        return null;// paymentRepository.findById(id);
+        Optional<Payment> payment = paymentRepository.findById(id);
+        return payment.orElse(null);
     }
 
 
     HttpHeaders httpHeaders = new HttpHeaders();
     HttpEntity<String> httpEntity = new HttpEntity<>("", httpHeaders);
 
+    @Override
     public Payment proceedTransaction(Transaction transaction) {
         if(new AccountCommand(transaction, restTemplate, httpHeaders).execute()){
-            System.out.println("execute true");
             Payment newPayment = new Payment();
             newPayment.setProvider(transaction.getProvider());
             newPayment.setConsumer(transaction.getConsumer());

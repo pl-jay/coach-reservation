@@ -11,6 +11,8 @@ public interface ReservationService {
     List<Reservation> fetchAll();
     List<Reservation> fetchByUser(int id); // fetch by user id
     List<Reservation> fetchByUtility(int id); // fetch by coach id
+    boolean cancelReservation(int id);
 
     Integer[] availableSeats(int id);
+    boolean  checkRecord(int id);
 }

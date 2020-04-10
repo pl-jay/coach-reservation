@@ -1,5 +1,6 @@
 package lk.pathum.utility.service;
 
+import com.sun.xml.bind.Util;
 import lk.pathum.utility.ReservationCommand.ReservationCommand;
 import lk.pathum.utility.model.Item;
 import lk.pathum.utility.model.Utility;
@@ -72,21 +73,26 @@ public class UtilityServiceImpl implements UtilityService {
         // fetch seats list from reservation service
         List<Integer> availableSeatList = Arrays.asList(fetchSeatsCount(utilityId));
 
-        // fetch # of seats from utility repository
-        Utility utility = new Utility();
-        utility.setId(utilityId);
-        Optional<Utility> optionalUtility = utilityRepository.findOne(Example.of(utility));
 
-        if (optionalUtility.isPresent()){
-            for (int i = 1; i <= optionalUtility.get().getSeats(); i++) {
-                seatList.add(i);
-            }
+        for (int i = 1; i <= seats(utilityId); i++) {
+            seatList.add(i);
         }
 
         // remove similar numbers, which returns available seats
         if(availableSeatList!=null)
             seatList.removeAll(availableSeatList);
         return seatList;
+    }
+
+    @Override
+    public Integer seats(int id){
+        Utility utility = new Utility();
+        utility.setId(id);
+        Optional<Utility> optionalUtility = utilityRepository.findById(id);
+
+
+
+        return optionalUtility.get().getSeats();
     }
 
 }

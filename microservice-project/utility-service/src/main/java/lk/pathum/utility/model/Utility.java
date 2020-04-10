@@ -16,6 +16,7 @@ public class Utility {
     String number;
     Integer seats;
     String category;
+    boolean ac;
 
     Reservation[] reservations;
 }

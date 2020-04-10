@@ -13,4 +13,6 @@ public interface UtilityService {
     Utility fetchUtility(Integer id);
     List<Integer> availableSeats(Integer id);
 
+    Integer seats(int id);
+
 }

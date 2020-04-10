@@ -9,6 +9,7 @@ import java.util.List;
 @Table(name = "user")
 @Data
 public class User implements Serializable {
+
     public User() {
     }
 
@@ -24,7 +25,7 @@ public class User implements Serializable {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "username")

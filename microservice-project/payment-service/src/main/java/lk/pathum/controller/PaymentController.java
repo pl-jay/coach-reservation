@@ -24,4 +24,9 @@ public class PaymentController {
         return new Transaction();
     }
 
+    @GetMapping(value = "/fetchPayments/{id}")
+    public Payment fetch(@PathVariable int id){
+        return paymentService.fetchPayments(id);
+    }
+
 }

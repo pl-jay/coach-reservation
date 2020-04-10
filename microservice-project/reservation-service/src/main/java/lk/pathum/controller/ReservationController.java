@@ -32,6 +32,11 @@ public class ReservationController {
         return reservationService.fetchByUser(id);
     }
 
+
+    @PostMapping("/cancelReservation/{id}")
+    public boolean cancelReservation(@PathVariable int id) {
+        return reservationService.cancelReservation(id);
+    }
     @RequestMapping("/sample")
     public Reservation sample(){
         Reservation reservation = new Reservation();

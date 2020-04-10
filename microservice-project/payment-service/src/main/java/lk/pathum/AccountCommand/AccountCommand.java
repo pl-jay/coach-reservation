@@ -2,7 +2,6 @@ package lk.pathum.AccountCommand;
 
 import com.netflix.hystrix.HystrixCommand;
 import com.netflix.hystrix.HystrixCommandGroupKey;
-import lk.pathum.model.Account;
 import lk.pathum.model.Transaction;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -27,7 +26,6 @@ public class AccountCommand  extends HystrixCommand<Boolean> {
     protected Boolean run() throws Exception {
         HttpEntity<String> httpEntity = new HttpEntity<>("", httpHeaders);
         ResponseEntity<Boolean> allocResponse =
-               // restTemplate.exchange("http://allocation-service/allocation/allocation/"+ employee.getId(), HttpMethod.GET,httpEntity, Allocation[].class);
                 restTemplate.exchange("http://account-service/accountController/pay/"+ transaction.getProvider()+"/"+transaction.getConsumer()+"/"+transaction.getAmount(),
                         HttpMethod.GET,httpEntity,Boolean.class);
         return allocResponse.getBody();
