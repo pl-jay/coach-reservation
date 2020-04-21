@@ -11,3 +11,7 @@ spring:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
       ddl-auto: update
+
+eureka:
+  instance:
+    instanceId: ${spring.application.name}:${random.value}}}

@@ -16,6 +16,7 @@ public class OAuthController {
 
     @RequestMapping("/register")
     public User register(@RequestBody User user){
+        System.out.println("OAuth Reg");
         return userService.save(user);
     }
 

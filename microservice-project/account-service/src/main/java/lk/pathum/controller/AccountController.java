@@ -1,7 +1,6 @@
 package lk.pathum.controller;
 
 import lk.pathum.model.Account;
-import lk.pathum.model.Payment;
 import lk.pathum.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

@@ -27,6 +27,7 @@ public class OAuthCommand extends HystrixCommand<User> {
         HttpEntity<String> httpEntity = new HttpEntity<>("", httpHeaders);
         ResponseEntity<User> userResponseEntity =
                 restTemplate.exchange("http://oauth-server/oauthController/register/"+user, HttpMethod.POST,httpEntity,User.class);
+                System.out.println(userResponseEntity.getBody());        
         return userResponseEntity.getBody();
     }
 
