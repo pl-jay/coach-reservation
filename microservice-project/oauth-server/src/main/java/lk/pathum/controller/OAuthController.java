@@ -3,25 +3,22 @@ package lk.pathum.controller;
 import lk.pathum.model.User;
 import lk.pathum.repository.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@EnableEurekaClient
 @RequestMapping("/oauthController")
 public class OAuthController {
 
     @Autowired
     public UserService userService;
 
-    @RequestMapping("/register")
-    public User register(@RequestBody User user){
-        System.out.println("OAuth Reg");
-        return userService.save(user);
+    @GetMapping("/registerNewUser")
+    public String AddNewUser(@RequestBody String user){
+        return user.toString();
+//        return userService.save(user).toString();
     }
 
-    @RequestMapping("/sample")
-    public User sample(){
-        return new User();
-    }
 }
+

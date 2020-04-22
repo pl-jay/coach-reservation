@@ -3,13 +3,10 @@ package lk.pathum.user.OauthCommand;
 import com.netflix.hystrix.HystrixCommand;
 import com.netflix.hystrix.HystrixCommandGroupKey;
 import lk.pathum.user.model.User;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 
-public class OAuthCommand extends HystrixCommand<User> {
+public class OAuthCommand extends HystrixCommand<String> {
 
     User user;
     RestTemplate restTemplate;
@@ -23,17 +20,20 @@ public class OAuthCommand extends HystrixCommand<User> {
     }
 
     @Override
-    protected User run() throws Exception {
-        HttpEntity<String> httpEntity = new HttpEntity<>("", httpHeaders);
-        ResponseEntity<User> userResponseEntity =
-                restTemplate.exchange("http://oauth-server/oauthController/register/"+user, HttpMethod.POST,httpEntity,User.class);
+    protected String run() throws Exception {
+        httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<String> httpEntity = new HttpEntity<>("FUCK THIS", httpHeaders);
+
+        ResponseEntity<String> userResponseEntity =
+                restTemplate.exchange("http://localhost:9191/oauthController/registerNewUser", HttpMethod.GET, httpEntity,String.class);
+
                 System.out.println(userResponseEntity.getBody());        
         return userResponseEntity.getBody();
     }
 
     @Override
-    public User getFallback(){
+    public String getFallback(){
         System.out.println("Fall back !");
-        return new User();
+        return new String("");
     }
 }
