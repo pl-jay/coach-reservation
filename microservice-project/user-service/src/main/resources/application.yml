@@ -14,4 +14,4 @@ spring:
 
 eureka:
   instance:
-    instanceId: ${spring.application.name}:${random.value}}}
+    instanceId: ${spring.application.name}:${random.value}

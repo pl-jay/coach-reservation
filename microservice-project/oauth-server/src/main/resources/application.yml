@@ -5,12 +5,10 @@ spring:
     password: P@thum25
     driver-class-name: com.mysql.cj.jdbc.Driver
     initialization-mode: always
-
   jpa:
     hibernate:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-
 logging:
   level:
     org:
