@@ -1,9 +1,9 @@
 package lk.pathum.utility.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Data
 @Entity
@@ -17,6 +17,11 @@ public class Utility {
     Integer seats;
     String category;
     boolean ac;
+
+    @ManyToOne
+    @JoinColumn
+    @JsonIgnore
+    CoachRoutes routes;
 
     Reservation[] reservations;
 }

@@ -12,6 +12,11 @@ spring:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
       ddl-auto: update
 
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+
 eureka:
   instance:
     instanceId: ${spring.application.name}:${random.value}

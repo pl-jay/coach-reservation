@@ -3,9 +3,13 @@ server:
 
 eureka:
   client:
+    enabled: true
     register-with-eureka: true
     fetch-registry: true
-
+    service-url:
+      defaultZone: http://discovery-service:8761/eureka/
+    instance:
+      hostname: localhost
 spring:
   application:
     name: payment-service

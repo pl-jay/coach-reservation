@@ -8,18 +8,20 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: {http://localhost:8761/eureka/:http://discovery-service:8761/eureka/}
 management:
   endpoints:
     web:
       exposure:
         include:
           - '*'
-
 security:
   oauth2:
     resource:
-      token-info-uri: http://localhost:9191/oauth/check_token
+      token-info-uri: http://localhost:9191/check_token
+      jwt:
+        key-value: 123456
+
     client:
       client-id: mobile
       client-secret: pin

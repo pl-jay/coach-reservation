@@ -1,7 +1,7 @@
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/reservationDb?createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:3306/reservationDb?allowPublicKeyRetrieval=true&useSSL=false
     username: pathum
     password: P@thum25
     driver-class-name: com.mysql.jdbc.Driver
@@ -10,11 +10,3 @@ spring:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
       ddl-auto: update
-    show-sql: true
-    properties:
-      hibernate:
-        format-sql: true
-
-eureka:
-  instance:
-    instanceId: ${spring.application.name}:${random.value}

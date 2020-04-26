@@ -1,6 +1,6 @@
 package lk.pathum.utility.service;
 
-import lk.pathum.utility.model.Item;
+import lk.pathum.utility.model.FilteredUtilities;
 import lk.pathum.utility.model.Utility;
 import org.springframework.stereotype.Service;
 
@@ -15,4 +15,5 @@ public interface UtilityService {
 
     Integer seats(int id);
 
+    List<Utility> utilityFilter(FilteredUtilities filteredUtilities);
 }

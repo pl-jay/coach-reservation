@@ -1,13 +1,13 @@
 package lk.pathum.user.service;
 
-import lk.pathum.user.model.User;
+import lk.pathum.user.model.UserModel;
 
 import java.util.List;
 
 public interface UserService {
-    List<User> getAll();
-    User save(User user);
-    User fetchUser(Integer id);
+    List<UserModel> getAll();
+    UserModel save(UserModel user);
+    UserModel fetchUser(Integer id);
 
-    User update(Integer id);
+    UserModel update(Integer id);
 }

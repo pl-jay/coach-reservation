@@ -15,6 +15,7 @@ public class ReservationCommand extends HystrixCommand<Integer[]> {
     Integer utility;
     RestTemplate restTemplate;
     HttpHeaders httpHeaders;
+    private static final Integer[] NO_SEATS = {};
 
     public ReservationCommand(Integer utility,RestTemplate restTemplate, HttpHeaders httpHeaders) {
         super(HystrixCommandGroupKey.Factory.asKey("default"));
@@ -35,6 +36,6 @@ public class ReservationCommand extends HystrixCommand<Integer[]> {
     @Override
     protected Integer[] getFallback(){
         System.out.println("Fall back");
-        return null;
+        return NO_SEATS;
     }
 }

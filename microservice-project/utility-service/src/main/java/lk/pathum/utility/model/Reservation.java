@@ -7,7 +7,7 @@ import java.time.LocalDate;
 public class Reservation {
     Integer id;
     Integer user;
-    LocalDate date;
+    String date;
     Integer seatNo;
     Integer utility_id;
     boolean isReserved;

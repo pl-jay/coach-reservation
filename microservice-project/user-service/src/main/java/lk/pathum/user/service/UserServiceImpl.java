@@ -1,8 +1,8 @@
 package lk.pathum.user.service;
 
 import lk.pathum.user.OauthCommand.OAuthCommand;
-import lk.pathum.user.model.User;
 import lk.pathum.user.repository.UserRepository;
+import lk.pathum.user.model.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
@@ -28,7 +28,9 @@ public class UserServiceImpl implements UserService {
 
     @Bean
     @LoadBalanced
-    RestTemplate getRestTemplate() { return new RestTemplate(); }
+    RestTemplate getRestTemplate(){
+        return new RestTemplate();
+    }
 
     @Autowired
     @LoadBalanced
@@ -38,11 +40,11 @@ public class UserServiceImpl implements UserService {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
-    public List<User> getAll() {
+    public List<UserModel> getAll() {
         return userRepository.findAll();
     }
 
-    public String saveUser(User user) {
+    public String saveUser(UserModel user) {
         try {
             return new OAuthCommand(user,restTemplate, new HttpHeaders()).execute();
         } catch (Exception e) {
@@ -51,17 +53,25 @@ public class UserServiceImpl implements UserService {
     return null;
     }
     @Override
-    public User save(User user) {
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        saveUser(user);
-        return userRepository.save(user);
+    public UserModel save(UserModel user) {
+        UserModel newUser = new UserModel();
+        newUser.setEmail(user.getEmail());
+        Example<UserModel> modelExample = Example.of(newUser);
+        Optional<UserModel> optionalUserModel = userRepository.findOne(modelExample);
+
+        if(optionalUserModel.isEmpty()){
+            saveUser(user);
+            user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+            return userRepository.save(user);
+        }
+        return new UserModel();
     }
 
     @Override
-    public User fetchUser(Integer id) {
-        Optional<User> optionalUsr = userRepository.findById(id);
+    public UserModel fetchUser(Integer id) {
+        Optional<UserModel> optionalUsr = userRepository.findById(id);
         if(optionalUsr.isPresent()){
-            User user = optionalUsr.get();
+            UserModel user = optionalUsr.get();
             return user;
         } else{
             return null;
@@ -69,17 +79,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User update(Integer id) {
-        User user = new User();
+    public UserModel update(Integer id) {
+        UserModel user = new UserModel();
         user.setId(id);
-
-        Example<User> example = Example.of(user);
-        Optional<User> optionalUsr = userRepository.findOne(example);
+        Example<UserModel> example = Example.of(user);
+        Optional<UserModel> optionalUsr = userRepository.findOne(example);
         if(optionalUsr.isPresent()){
-            User newUser = optionalUsr.get();
+            UserModel newUser = optionalUsr.get();
             newUser.setName("jaye");
             return userRepository.save(newUser);
         }
-        return new User();
+        return new UserModel();
     }
 }
